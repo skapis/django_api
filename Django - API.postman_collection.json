@@ -1,0 +1,421 @@
+{
+	"info": {
+		"_postman_id": "1df0f60d-1962-4722-b32f-67dbdd821d8f",
+		"name": "Django - REST API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Purchases",
+			"item": [
+				{
+					"name": "Purchase list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/purchases/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"purchases",
+								"list"
+							],
+							"query": [
+								{
+									"key": "currency",
+									"value": "CZK",
+									"disabled": true
+								},
+								{
+									"key": "from",
+									"value": "2018-01-01",
+									"disabled": true
+								},
+								{
+									"key": "to",
+									"value": "2022-12-31",
+									"disabled": true
+								},
+								{
+									"key": "amount_from",
+									"value": "2",
+									"disabled": true
+								},
+								{
+									"key": "amount_to",
+									"value": "4",
+									"disabled": true
+								},
+								{
+									"key": "",
+									"value": null,
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update purchase",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"purchase_id\": \"2f60490e-6d76-47f0-9c51-2aebe5b6f6d0\",\r\n    \"product\": \"Iphone 13\",\r\n    \"amount\": 2,\r\n    \"currency\": \"CZK\",\r\n    \"unit_price\": 25000,\r\n    \"total_price\": 50000,\r\n    \"purchase_date\": \"2022-10-29\",\r\n    \"payment_method\": \"Cash\",\r\n    \"shipping_method\": \"In the store\",\r\n    \"email\": \"testappemail9+1@gmail.com\",\r\n    \"country\": \"Czech Republic\",\r\n    \"city\": \"Velké Svatoňovice\",\r\n    \"street\": null,\r\n    \"street_number\": \"25\",\r\n    \"zipcode\": \"54234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/purchases/detail?purchase=2f60490e-6d76-47f0-9c51-2aebe5b6f6d0",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"purchases",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "purchase",
+									"value": "2f60490e-6d76-47f0-9c51-2aebe5b6f6d0"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Purchase Detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/purchases/detail?purchase=c44838d9-7f31-41ad-8df4-f7770d1fd7d1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"purchases",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "purchase",
+									"value": "c44838d9-7f31-41ad-8df4-f7770d1fd7d1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Purchase",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/purchases/detail?purchase=24348e07-b995-4aec-b785-d493409d11d3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"purchases",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "purchase",
+									"value": "24348e07-b995-4aec-b785-d493409d11d3"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New Purchase",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"product\": \"Iphone 13\",\r\n    \"amount\": 2,\r\n    \"currency\": \"CZK\",\r\n    \"unit_price\": 25000,\r\n    \"total_price\": 50000,\r\n    \"purchase_date\": \"2022-10-29\",\r\n    \"payment_method\": \"Cash\",\r\n    \"shipping_method\": \"In the store\",\r\n    \"email\": \"testappemail9+1@gmail.com\",\r\n    \"country\": \"Czech Republic\",\r\n    \"city\": \"Velké Svatoňovice\",\r\n    \"street\": null,\r\n    \"street_number\": \"25\",\r\n    \"zipcode\": \"54234\"\r\n}\r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/purchases/list?user=3",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"purchases",
+								"list"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "3"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "Users",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token d10aee56408b1ef49c399be3e9cb180296637670",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Users with Purchases",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token d10aee56408b1ef49c399be3e9cb180296637670",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/purchases",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"purchases"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User detail",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token d10aee56408b1ef49c399be3e9cb180296637670",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/detail?user=2&type=full",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"detail"
+							],
+							"query": [
+								{
+									"key": "user",
+									"value": "2"
+								},
+								{
+									"key": "type",
+									"value": "full"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "New User",
+					"request": {
+						"auth": {
+							"type": "apikey",
+							"apikey": [
+								{
+									"key": "value",
+									"value": "Token d10aee56408b1ef49c399be3e9cb180296637670",
+									"type": "string"
+								},
+								{
+									"key": "key",
+									"value": "Authorization",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"username\": \"APITest\",\r\n    \"password\": \"Django12345\",\r\n    \"email\": \"testappemail9+apitest@gmail.com\",\r\n    \"first_name\": \"API\",\r\n    \"last_name\": \"Test\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/users/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"users",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
