@@ -5,14 +5,8 @@ This repository contains simple API in Django REST Framework. To use API, follow
 # API Documentation
 In project are two models, Users and Purchases. Each User can have zero or more purchases. Each Purchase must have at least one user. 
 
-**Flow**
-1. Create or Get User information
-2. Create new Purchase for selected User
-3. Get User detail (including all his purchases)
-
-## Users
-**API KEY**<br>
-You can create authorization token for each user by 
+**Authentication**<br>
+To use any user endpoint you have to be authenticated. This API uses authentication by token, which belongs to user. You can create authorization token for each user by 
 ```
 ./manage.py drf_create_token <username>
 ```
@@ -20,6 +14,8 @@ or you can use existing one
 ```
 Token d10aee56408b1ef49c399be3e9cb180296637670
 ```
+
+## Users
 
 ### User list
 
@@ -329,6 +325,99 @@ Note: parameters `from`, `to` and `amount_from`, `amount_to` must be used togeth
             }
         ]
     }
+}
+```
+
+### Purchase detail
+To get information of selected purchase
+
+```http
+GET /purchases/detail?purchase=c44838d9-7f31-41ad-8df4-f7770d1fd7d1
+```
+**Parameters**
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `purchase` | `uuid` | **Required** purchase id|
+
+
+### Update Purchase
+To update or change purchase data
+
+``` http
+PUT /purchases/detail?purchase=2f60490e-6d76-47f0-9c51-2aebe5b6f6d0
+```
+
+**Parameters**
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `purchase` | `uuid` | **Required** purchase id|
+
+
+**Body**
+
+```
+{
+    "purchase_id": "2f60490e-6d76-47f0-9c51-2aebe5b6f6d0",
+    "product": "Iphone 13",
+    "amount": 2,
+    "currency": "CZK",
+    "unit_price": 25000,
+    "total_price": 50000,
+    "purchase_date": "2022-10-29",
+    "payment_method": "Cash",
+    "shipping_method": "In the store",
+    "email": "testappemail9+1@gmail.com",
+    "country": "Czech Republic",
+    "city": "Velké Svatoňovice",
+    "street": null,
+    "street_number": "25",
+    "zipcode": "54234"
+}
+```
+
+### Delete Purchase
+To delete purchase
+
+``` http
+DELETE /purchases/detail?purchase=2f60490e-6d76-47f0-9c51-2aebe5b6f6d0
+```
+
+**Parameters**
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `purchase` | `uuid` | **Required** purchase id|
+
+
+### Create New Purchase
+To create new purchase you have to call POST request with user id as a parameter and purchase data in body, because each purchase must be assigned to user
+
+```http
+POST /purchases/list?user=3
+```
+
+**Parameters**
+| Parameter | Type | Description |
+| :--- | :--- | :--- |
+| `user` | `int` | **Required** user id|
+
+**Body**
+
+```
+{
+    "product": "Iphone 13",
+    "amount": 2,
+    "currency": "CZK",
+    "unit_price": 25000,
+    "total_price": 50000,
+    "purchase_date": "2022-10-29",
+    "payment_method": "Cash",
+    "shipping_method": "In the store",
+    "email": "testappemail9+1@gmail.com",
+    "country": "Czech Republic",
+    "city": "Velké Svatoňovice",
+    "street": null,
+    "street_number": "25",
+    "zipcode": "54234"
 }
 ```
 
