@@ -1,12 +1,12 @@
 # Django API
 
-This repository contains simple API in Django REST Framework. To use API, follow instructions in API Documentation below. You can also use postman collection, where are all request to this project.
+This repository contains simple API in Django REST Framework. To use API, follow the instructions in API Documentation below. You can also use the postman collection, where are all requests for this project.
 
 # API Documentation
-In project are two models, Users and Purchases. Each User can have zero or more purchases. Each Purchase must have at least one user. 
+In the project are two models, Users and Purchases. Each User can have zero or more purchases. Each Purchase must have at least one user. 
 
 **Authentication**<br>
-To use any user endpoint you have to be authenticated. This API uses authentication by token, which belongs to user. You can create authorization token for each user by 
+To use any user endpoint you have to be authenticated. This API uses authentication by token, which belongs to the user. You can create an authorization token for each user by 
 ```
 ./manage.py drf_create_token <username>
 ```
@@ -223,7 +223,7 @@ GET /users/purchases
 ```
 
 ### Create New User
-You can create new user by post request with user data in body
+You can create a new user by post request with user data in body
 
 ```http
 POST /users/list
@@ -244,7 +244,7 @@ POST /users/list
 ## Purchases
 
 ### Purchase list
-To get list of all purchases in database
+To get list of all purchases in the database
 
 ```http
 GET /purchases/list?currency=CZK&from=2022-01-01&to=2022-05-05
@@ -329,7 +329,7 @@ Note: parameters `from`, `to` and `amount_from`, `amount_to` must be used togeth
 ```
 
 ### Purchase detail
-To get information of selected purchase
+To get information of the selected purchase
 
 ```http
 GET /purchases/detail?purchase=c44838d9-7f31-41ad-8df4-f7770d1fd7d1
